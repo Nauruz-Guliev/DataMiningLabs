@@ -1,58 +1,29 @@
-# :star: Bloom Filter 
+# :star: Desicion tree
 
-Bloom filter algorithm that tells wether a word is present in a text or not. This project contains non-bloom filter related files that can be ignored. 
-The bloom filter itself and all related code can be found [here](https://github.com/Nauruz-Guliev/lab-bloom-filter/tree/master/src/main/java/ru/kpfu/itis/gnt/hwpebble/bloomfilter).  
+Decision tree for [this](https://drive.google.com/file/d/1LBDnhITL0Wqwp5G6M6IBI-SSz8BIoNec/view) data set. Following criterion were used: gini, entropy, log_loss
 
-By default false positive rate is set to 0.5 
-
-### 🛠️ Details
-
-
-##### How hash functions are being created.
-```Java
- private int[] getHashValues(String input) {
-        int[] hashValues = new int[numHashFunctions];
-        int hash1 = input.hashCode();
-        int hash2 = new Random(hash1).nextInt();
-        for (int i = 0; i < numHashFunctions; i++) {
-            hashValues[i] = Math.abs((hash1 + i * hash2) % bitSetSize);
-        }
-        return hashValues;
- }
+#### Accuracy results 
 ```
-
-##### Bitset size is calculated according to the formula:
-
-$\-((n*lnp)/(ln2)^2)$
-
-```Java
-  int bitSetSize = (int) Math.ceil(-1 * (expectedNumEntries * Math.log(falsePositiveRate)) /
-                Math.pow(Math.log(2.0), 2.0));
+Gini criterion: Accuracy on test data = 0.675
+Entropy criterion: Accuracy on test data = 0.714
+Log_loss criterion: Accuracy on test data = 0.727
 
 ```
 
-##### Amount of hashfunctions that are needed:
-$\ m/n * ln(2)$
-```Java
-   this.numHashFunctions = (int) Math.round((bitSetSize / (double) expectedNumEntries) * Math.log(2.0));
-```
+#### 🖼️ Screenshots
 
-### 🖼️ Screenshots
 
-###### Positive result
+##### Entropy
 <p align="left">
-  <img src="../master/images/positive.png" width="800"/>
+  <img src="/diabetes_entropy.png" width="800"/>
 </p>
 
-###### Negative result
-
+##### Gini
 <p align="left">
-  <img src="../master/images/negative.png" width="800"/>
+  <img src="/diabetes_gini.png" width="800"/>
 </p>
 
-###### False positive result
-
+##### Log loss
 <p align="left">
-  <img src="../master/images/false_positive.png" width="800"/>
+  <img src="/diabetes_log_loss.png" width="800"/>
 </p>
-
