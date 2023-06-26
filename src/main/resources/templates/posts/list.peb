@@ -1,0 +1,57 @@
+{% extends 'base' %}
+
+
+{% block content %}
+
+<div>
+    {% for post in posts %}
+    <div class="card">
+        <div class="card-header">
+            <h5>{{ post.title }}</h5>
+        </div>
+        <div class="card-body">
+            <p class="card-text">{{ post.content }}</p>
+            <p>{{ lastSeen(post.publicationDate) }} </p>
+        </div>
+    </div>
+    {% endfor %}
+
+</div>
+
+
+{% if totalPages > 1 %}
+<nav class="b-4">
+    <ul class="pagination">
+        {% if currentPage - 2 > 0 %}
+        <li class="page-item">
+            <a class="page-link" href="{{ fullUri("/posts?page=#{currentPage-2}") }}" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+            <span class="sr-only">Previous</span>
+            </a>
+        </li>
+        {% endif %}
+        {% for i in range(currentPage-1, min((currentPage+1), totalPages), 1) %}
+        {% if currentPage != i and i > 0%}
+        <li class="page-item"><a class="page-link" href="{{ fullUri("/posts?page=#{i}") }}">{{ i }}</a></li>
+        {% elseif i > 0%}
+        <li class="page-item active">
+                <span class="page-link">
+                    {{ i }}
+                <span class="sr-only">(current)</span>
+                </span>
+        </li>
+        {% endif %}
+        {% endfor %}
+        {% if currentPage + 1 < totalPages %}
+        <li class="page-item">
+            <a class="page-link" href="{{ fullUri("/posts?page=#{currentPage+2}") }}" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+            <span class="sr-only">Next</span>
+            </a>
+        </li>
+        {% endif %}
+    </ul>
+</nav>
+
+{% endif %}
+{% endblock %}

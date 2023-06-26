@@ -1,0 +1,10 @@
+    {% extends 'base' %}
+
+
+    {% block content %}
+    <div class="d-flex justify-content-center">
+        <div class="alert alert-danger" role="alert">
+            {{ message }}
+        </div>
+    </div>
+    {% endblock content %}

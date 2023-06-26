@@ -1,0 +1,16 @@
+    {% extends 'base' %}
+
+    {% block content %}
+
+<div class="d-flex justify-content-center m-4">
+    <form method="post">
+        <label class="text-center w-100 m-2">Type in time</label>
+        <div class="form-outline timepicker w-100 m-2">
+            <input type="text" class="form-control" id="form1" value="{{ time }}" placeholder="HH:ss" class="masked" pattern="(1[0-2]|0[1-9])\/(1[5-9]|2\d)" data-valid-example="12:00">
+         </div>
+        <button class="btn btn-primary w-100 m-2" type="submit">CALCULATE LAST SEEN</button>
+    </form>
+</div>
+
+
+{% endblock content%}

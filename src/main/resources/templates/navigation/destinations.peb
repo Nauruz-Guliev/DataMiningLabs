@@ -1,0 +1,9 @@
+{% extends 'navigation/navbar' %}
+
+{% block navItems %}
+	{{ panelNavigation('posts/new', 'Create post') }}
+    {{ panelNavigation('posts', 'Read posts') }}
+    {{ panelNavigation('last_seen', 'Last seen') }}
+    {{ panelNavigation('bloom', 'Bloom filter') }}
+
+{% endblock %}

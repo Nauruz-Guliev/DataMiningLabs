@@ -1,30 +1,58 @@
-# :star: Website category identifier
+# :star: Bloom Filter 
 
-This script can be used to determine which topic a website belongs to the most.
+Bloom filter algorithm that tells wether a word is present in a text or not. This project contains non-bloom filter related files that can be ignored. 
+The bloom filter itself and all related code can be found [here](https://github.com/Nauruz-Guliev/lab-bloom-filter/tree/master/src/main/java/ru/kpfu/itis/gnt/hwpebble/bloomfilter).  
 
-# :right_anger_bubble: Usage
+By default false positive rate is set to 0.5 
 
-* Open the project in any IDE for python (preferably PyCharm).
-* Download all the necessary libraries.
-* Define the url that you need to analize.
-```python
-URL = "https://cyberleninka.ru/article/c/basic-medicine"
-```
-* Run the script and see the results. For the link listed above the result will be as follows:
-```
-Cosine similarity
-science: 0.9972582641400416
-sports: 0.7905615722471595
-news: 0.35355339059327373
-shopping: 0.6093531655310358
+### 🛠️ Details
 
 
-Jaccard index
-science: 0.00340522133938706
-news: 0.0
-sport: 0.0
-shopping: 0.0
-
+##### How hash functions are being created.
+```Java
+ private int[] getHashValues(String input) {
+        int[] hashValues = new int[numHashFunctions];
+        int hash1 = input.hashCode();
+        int hash2 = new Random(hash1).nextInt();
+        for (int i = 0; i < numHashFunctions; i++) {
+            hashValues[i] = Math.abs((hash1 + i * hash2) % bitSetSize);
+        }
+        return hashValues;
+ }
 ```
 
-Notice that [this logic](https://ru.stackoverflow.com/a/1261379) was used for calculating cosine similarity.
+##### Bitset size is calculated according to the formula:
+
+$\-((n*lnp)/(ln2)^2)$
+
+```Java
+  int bitSetSize = (int) Math.ceil(-1 * (expectedNumEntries * Math.log(falsePositiveRate)) /
+                Math.pow(Math.log(2.0), 2.0));
+
+```
+
+##### Amount of hashfunctions that are needed:
+$\ m/n * ln(2)$
+```Java
+   this.numHashFunctions = (int) Math.round((bitSetSize / (double) expectedNumEntries) * Math.log(2.0));
+```
+
+### 🖼️ Screenshots
+
+###### Positive result
+<p align="left">
+  <img src="../master/images/positive.png" width="800"/>
+</p>
+
+###### Negative result
+
+<p align="left">
+  <img src="../master/images/negative.png" width="800"/>
+</p>
+
+###### False positive result
+
+<p align="left">
+  <img src="../master/images/false_positive.png" width="800"/>
+</p>
+
