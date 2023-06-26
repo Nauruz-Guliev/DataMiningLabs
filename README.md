@@ -1,7 +1,7 @@
 # :star: Bloom Filter 
 
 Bloom filter algorithm that tells wether a word is present in a text or not. This project contains non-bloom filter related files that can be ignored. 
-The bloom filter itself and all related code can be found [here](https://github.com/Nauruz-Guliev/lab-bloom-filter/tree/master/src/main/java/ru/kpfu/itis/gnt/hwpebble/bloomfilter).  
+The bloom filter itself and all related code can be found [here](https://github.com/Nauruz-Guliev/DataMiningLabs/tree/lab4/src/main/java/ru/kpfu/itis/gnt/hwpebble/bloomfilter).  
 
 By default false positive rate is set to 0.5 
 
@@ -41,13 +41,13 @@ $\ m/n * ln(2)$
 
 ###### Positive result
 <p align="left">
-  <img src="../master/images/positive.png" width="800"/>
+  <img src="../lab4/images/positive.png" width="800"/>
 </p>
 
 ###### Negative result
 
 <p align="left">
-  <img src="../master/images/negative.png" width="800"/>
+  <img src="../lab4/images/negative.png" width="800"/>
 </p>
 
 ###### False positive result
