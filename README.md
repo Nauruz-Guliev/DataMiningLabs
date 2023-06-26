@@ -53,6 +53,6 @@ $\ m/n * ln(2)$
 ###### False positive result
 
 <p align="left">
-  <img src="../master/images/false_positive.png" width="800"/>
+  <img src="../lab4/images/false_positive.png" width="800"/>
 </p>
 
