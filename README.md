@@ -1,23 +1,30 @@
-# :star: VK Friends Graph
+# :star: Website category identifier
 
-This script helps you to find the relationship between your friends in VK in form of a graph. 
+This script can be used to determine which topic a website belongs to the most.
 
-## :world_map: Usage
-In order to use the script you need to open the project in PyCharm(or any other IDE), download neccessary libraries and fill in the following fields: 
+# :right_anger_bubble: Usage
 
+* Open the project in any IDE for python (preferably PyCharm).
+* Download all the necessary libraries.
+* Define the url that you need to analize.
 ```python
-if __name__ == "__main__":
-    login = 'username' 
-    password = 'password' 
-    user_id = 0     # your (or any other id) in VK
-    depth = 1       # depth 1 will go only one layer in depth (1 -> your friends friends)
+URL = "https://cyberleninka.ru/article/c/basic-medicine"
 ```
-Once all the fields are filled in, you can start creating the graph by running the script. 
-Notice that the more friends you have the more time it will take to complete. Also, **don't try to make the depth greater than 2** because it can lead to 	*temporarily account suspension* meaning that you will not be able to use some of the features of VK.
+* Run the script and see the results. For the link listed above the result will be as follows:
+```
+Cosine similarity
+science: 0.9972582641400416
+sports: 0.7905615722471595
+news: 0.35355339059327373
+shopping: 0.6093531655310358
 
-# :boom: Result
-The final result will be stored as a file with .png extension in the root directory of the project and look something like this: 
 
-<p align="center">
-   <img src="graph.png" width="500"/>
-</p>
+Jaccard index
+science: 0.00340522133938706
+news: 0.0
+sport: 0.0
+shopping: 0.0
+
+```
+
+Notice that [this logic](https://ru.stackoverflow.com/a/1261379) was used for calculating cosine similarity.

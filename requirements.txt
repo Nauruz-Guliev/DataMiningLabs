@@ -1,3 +1,0 @@
-matplotlib
-networkx
-vk_api
