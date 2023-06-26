@@ -18,10 +18,10 @@ SVC:
 ### 🖼️ Screenshot examples
 
 <p align="left">
-  <img src="../master/images/img.png" width="800"/>
+  <img src="../lab5/images/img.png" width="800"/>
 </p>
 
 <p align="left">
-  <img src="../master/images/img_1.png" width="800"/>
+  <img src="../lab5/images/img_1.png" width="800"/>
 </p>
 
